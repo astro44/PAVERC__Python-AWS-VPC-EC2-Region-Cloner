@@ -3,6 +3,7 @@ requires:
 - python 2.7
 - boto
 - boto 3        
+
 Script will Clone most properties from an EC2 instance in one region to N other region(s)
 python27 paverc.py dest-region_ec2instance_size,targetR1_targetR2_targetR3,saltlocation  
 **example:**   
