@@ -593,11 +593,11 @@ if 'help' in prompt:
         print "used to copy given snapshot to given dest regions '_' snapshot and original volume size"
         print "subsequently build test server and attach volume"
         print "finally run stack from given source"
-        print "python27 regionTestServer.py dest-region_ec2instance_size,targetR1_targetR2_targetR3,saltlocation"
+        print "python27 PAVERC.py dest-region_ec2instance_size,targetR1_targetR2_targetR3,saltlocation"
         print "--example:"
-        print "python27 regionTestServer.py us-west-2_i-0b68f4cf_50,us-east-1_us-west-1"
+        print "python27 PAVERC.py us-west-2_i-0b68f4cf_50,us-east-1_us-west-1"
         print "--example: Destroy"
-        print "python27 regionTestServer.py destroy,us-east-1_us-west-1"
+        print "python27 PAVERC.py destroy,us-east-1_us-west-1"
 
         ## 'ap-southeast-2'  'us-west-1'
 else:
