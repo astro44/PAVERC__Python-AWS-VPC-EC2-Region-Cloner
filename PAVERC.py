@@ -1,5 +1,5 @@
 #!/usr/bin/env python27
-
+# Author: RColvin  fl
 import ntpath
 import hashlib
 import os, glob, shutil, sys
