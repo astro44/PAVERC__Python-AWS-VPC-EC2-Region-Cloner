@@ -118,10 +118,10 @@ class Clone2Region():
 
             printColor(["----- DELETING ---from:%s --"%(t_list)])
             for r in t_list:
-            	self.destroyInstances(r)
-            	self.destroyVPC(r)
+            	self.destroyInstances(r,aws_key, aws_secret)
+            	self.destroyVPC(r,aws_key, aws_secret)
 
-        def destroyVPC(self,region):
+        def destroyVPC(self,region,aws_key, aws_secret):
         	vpc = boto3.client('ec2', region, aws_access_key_id=aws_key, aws_secret_access_key=aws_secret)
         	response = vpc.describe_vpcs()
         	vpcID=""
@@ -142,7 +142,7 @@ class Clone2Region():
         			vpcIN = vpc.Vpc(vpcID)
         			vpcIN.delete()
         			break
-        def destroyInstances(self,region):
+        def destroyInstances(self,region,aws_key, aws_secret)):
         	client = boto3.client('ec2', region, aws_access_key_id=aws_key, aws_secret_access_key=aws_secret)
         	response=client.describe_instances()
         	found = False
