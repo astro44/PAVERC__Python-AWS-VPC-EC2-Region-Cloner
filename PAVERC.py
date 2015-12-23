@@ -122,6 +122,7 @@ class Clone2Region():
             	self.destroyVPC(r,aws_key, aws_secret)
 
         def destroyVPC(self,region,aws_key, aws_secret):
+        	ec2 = boto3.resource('ec2', region, aws_access_key_id=aws_key, aws_secret_access_key=aws_secret)
         	vpc = boto3.client('ec2', region, aws_access_key_id=aws_key, aws_secret_access_key=aws_secret)
         	response = vpc.describe_vpcs()
         	vpcID=""
@@ -139,7 +140,7 @@ class Clone2Region():
         		if found:
         			vpcID=v['VpcId']
         			printColor(['_____Deleting VPC now...this will also delete related subnets.in .%s'%(region)])
-        			vpcIN = vpc.Vpc(vpcID)
+        			vpcIN = ec2.Vpc(vpcID)
         			vpcIN.delete()
         			break
         def destroyInstances(self,region,aws_key, aws_secret)):
